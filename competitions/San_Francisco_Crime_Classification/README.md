@@ -1,5 +1,9 @@
-[kaggle地址](https://www.kaggle.com/c/sf-crime)
+[kaggle地址](https://www.kaggle.com/c/sf-crime)  
 [github地址](https://github.com/lijingpeng/kaggle)
+
+特点：  
+1. 离散特征
+2. 离散特征二值化处理
 
 ## 数据概览
 
