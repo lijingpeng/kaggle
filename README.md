@@ -6,3 +6,4 @@
 
 1. [San_Francisco_Crime_Classification](https://github.com/lijingpeng/kaggle/tree/master/competitions/San_Francisco_Crime_Classification)
 2. [Digit_recognizer](https://github.com/lijingpeng/kaggle/tree/master/competitions/digit_recognizer)
+3. [Bags_of_Words](https://github.com/lijingpeng/kaggle/tree/master/competitions/Bag_of_Words)
