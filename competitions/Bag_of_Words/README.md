@@ -1,6 +1,11 @@
 
 ## 电影文本情感分类
 
+[Github地址](https://github.com/lijingpeng/kaggle/tree/master/competitions/Bag_of_Words)  
+[Kaggle地址](https://www.kaggle.com/c/word2vec-nlp-tutorial/)
+
+这个任务主要是对电影评论文本进行情感分类，主要分为正面评论和负面评论，所以是一个二分类问题，二分类模型我们可以选取一些常见的模型比如贝叶斯、逻辑回归等，这里挑战之一是文本内容的向量化，因此，我们首先尝试基于TF-IDF的向量化方法，然后尝试word2vec。
+
 
 ```python
 import pandas as pd
@@ -34,20 +39,6 @@ print train.head()
 print test.head()
 ```
 
-           id  sentiment                                             review
-    0  5814_8          1  With all this stuff going down at the moment w...
-    1  2381_9          1  \The Classic War of the Worlds\" by Timothy Hi...
-    2  7759_3          0  The film starts with a manager (Nicholas Bell)...
-    3  3630_4          0  It must be assumed that those who praised this...
-    4  9495_8          1  Superbly trashy and wondrously unpretentious 8...
-             id                                             review
-    0  12311_10  Naturally in a film who's main themes are of m...
-    1    8348_2  This movie is a disaster within a disaster fil...
-    2    5828_4  All in all, this is a movie for kids. We saw i...
-    3    7186_2  Afraid of the Dark left me with the impression...
-    4   12128_7  A very accurate depiction of small time mob li...
-
-
 ## 预处理数据
 
 
@@ -65,11 +56,6 @@ for i in range(len(test['review'])):
 print train_data[0], '\n'
 print test_data[0]
 ```
-
-    with all this stuff going down at the moment with mj i ve started listening to his music watching the odd documentary here and there watched the wiz and watched moonwalker again maybe i just want to get a certain insight into this guy who i thought was really cool in the eighties just to maybe make up my mind whether he is guilty or innocent moonwalker is part biography part feature film which i remember going to see at the cinema when it was originally released some of it has subtle messages about mj s feeling towards the press and also the obvious message of drugs are bad m kay visually impressive but of course this is all about michael jackson so unless you remotely like mj in anyway then you are going to hate this and find it boring some may call mj an egotist for consenting to the making of this movie but mj and most of his fans would say that he made it for the fans which if true is really nice of him the actual feature film bit when it finally starts is only on for minutes or so excluding the smooth criminal sequence and joe pesci is convincing as a psychopathic all powerful drug lord why he wants mj dead so bad is beyond me because mj overheard his plans nah joe pesci s character ranted that he wanted people to know it is he who is supplying drugs etc so i dunno maybe he just hates mj s music lots of cool things in this like mj turning into a car and a robot and the whole speed demon sequence also the director must have had the patience of a saint when it came to filming the kiddy bad sequence as usually directors hate working with one kid let alone a whole bunch of them performing a complex dance scene bottom line this movie is for people who like mj on one level or another which i think is most people if not then stay away it does try and give off a wholesome message and ironically mj s bestest buddy in this movie is a girl michael jackson is truly one of the most talented people ever to grace this planet but is he guilty well with all the attention i ve gave this subject hmmm well i don t know because people can be different behind closed doors i know this for a fact he is either an extremely nice but stupid guy or one of the most sickest liars i hope he is not the latter 
-    
-    naturally in a film who s main themes are of mortality nostalgia and loss of innocence it is perhaps not surprising that it is rated more highly by older viewers than younger ones however there is a craftsmanship and completeness to the film which anyone can enjoy the pace is steady and constant the characters full and engaging the relationships and interactions natural showing that you do not need floods of tears to show emotion screams to show fear shouting to show dispute or violence to show anger naturally joyce s short story lends the film a ready made structure as perfect as a polished diamond but the small changes huston makes such as the inclusion of the poem fit in neatly it is truly a masterpiece of tact subtlety and overwhelming beauty
-
 
 ## 特征处理
 直接丢给计算机这些词文本，计算机是无法计算的，因此我们需要把文本转换为向量，有几种常见的文本向量处理方法，比如：
@@ -105,9 +91,6 @@ test_x = data_all[len_train:]
 print 'TF-IDF处理结束.'
 ```
 
-    TF-IDF处理结束.
-
-
 ## 朴素贝叶斯训练
 
 
@@ -124,9 +107,6 @@ import numpy as np
 print "多项式贝叶斯分类器10折交叉验证得分: ", np.mean(cross_val_score(model_NB, train_x, label, cv=10, scoring='roc_auc'))
 ```
 
-    多项式贝叶斯分类器10折交叉验证得分:  0.949135808
-
-
 
 ```python
 test_predicted = np.array(model_NB.predict(test_x))
@@ -137,11 +117,7 @@ nb_output.to_csv('nb_output.csv', index=False)
 print '结束.'
 ```
 
-    保存结果...
-    结束.
-
-
-提交最终的结果到kaggle，准确率为：0.85728，排名300左右，50%的水平
+提交最终的结果到kaggle，AUC为：0.85728，排名300左右，50%的水平
 
 ## 逻辑回归
 
@@ -165,53 +141,6 @@ GridSearchCV(cv=20, estimator=LR(C=1.0, class_weight=None, dual=True,
 print model_LR.grid_scores_
 ```
 
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-    /Library/Python/2.7/site-packages/sklearn/svm/base.py:874: DeprecationWarning: penalty='L2' has been deprecated in favor of penalty='l2' as of 0.16. Backward compatibility for the uppercase notation will be removed in 0.18
-      DeprecationWarning)
-
-
-    [mean: 0.96461, std: 0.00490, params: {'C': 30}]
-
-
 
 ```python
 test_predicted = np.array(model_LR.predict(test_x))
@@ -223,8 +152,18 @@ lr_output.to_csv('lr_output.csv', index=False)
 print '结束.'
 ```
 
-    保存结果...
-    结束.
+提交最终的结果到kaggle，AUC为：0.88956，排名260左右，比之前贝叶斯模型有所提高
+
+## Word2vec
+神经网络语言模型L = SUM[log(p(w|contect(w))]，即在w的上下文下计算当前词w的概率，由公式可以看到，我们的核心是计算p(w|contect(w)， Word2vec给出了构造这个概率的一个方法。
 
 
-提交最终的结果到kaggle，准确率为：0.88956，排名260左右，比之前贝叶斯模型有所提高
+```python
+import gensim
+model = gensim.models.Word2Vec(train_data, min_count=3, workers=4)
+```
+
+
+```python
+
+```
