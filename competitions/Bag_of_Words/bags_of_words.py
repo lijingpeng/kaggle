@@ -338,6 +338,11 @@ import numpy as np
 
 print "高斯贝叶斯分类器10折交叉验证得分: ", np.mean(cross_val_score(model_GNB, trainDataVecs, label, cv=10, scoring='roc_auc'))
 
+result = forest.predict( testDataVecs )
+
+output = pd.DataFrame( data={"id":test["id"], "sentiment":result} )
+output.to_csv( "gnb_word2vec.csv", index=False, quoting=3 )
+
 
 # 从验证结果来看，没有超过基于TF-IDF多项式贝叶斯模型
 
@@ -352,6 +357,12 @@ forest = RandomForestClassifier( n_estimators = 100, n_jobs=2)
 print("Fitting a random forest to labeled training data...")
 get_ipython().magic(u'time forest = forest.fit( trainDataVecs, label )')
 print "随机森林分类器10折交叉验证得分: ", np.mean(cross_val_score(forest, trainDataVecs, label, cv=10, scoring='roc_auc'))
+
+# 测试集
+result = forest.predict( testDataVecs )
+
+output = pd.DataFrame( data={"id":test["id"], "sentiment":result} )
+output.to_csv( "rf_word2vec.csv", index=False, quoting=3 )
 
 
 # 改用随机森林之后，效果有提升，但是依然没有超过基于TF-IDF多项式贝叶斯模型
