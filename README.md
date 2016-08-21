@@ -33,3 +33,4 @@
 2. [Digit_recognizer](https://github.com/lijingpeng/kaggle/tree/master/competitions/digit_recognizer)
 3. [Bags_of_Words](https://github.com/lijingpeng/kaggle/tree/master/competitions/Bag_of_Words)
 4. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
+5. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
