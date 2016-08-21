@@ -9,7 +9,7 @@
 3. [Bags_of_Words](https://github.com/lijingpeng/kaggle/tree/master/competitions/Bag_of_Words)
 4. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
 5. [sequence](https://github.com/lijingpeng/kaggle/tree/master/competitions/Sequence)
-
+6. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
 
 ## 数据处理
 #### 纯离散特征
@@ -18,8 +18,9 @@
 #### 连续特征
 1. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
 
-#### 图像数据
+#### 图像数据&CNN
 1. [Digit_recognizer](https://github.com/lijingpeng/kaggle/tree/master/competitions/digit_recognizer)
+2. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
 
 #### 缺失值和归一化
 1. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
