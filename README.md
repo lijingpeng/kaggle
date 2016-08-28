@@ -10,6 +10,7 @@
 4. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
 5. [sequence](https://github.com/lijingpeng/kaggle/tree/master/competitions/Sequence)
 6. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
+7. [Facial_Keypoints_Detection](https://github.com/lijingpeng/kaggle/tree/master/competitions/Facial_Keypoints_Detection)
 
 ## 数据处理
 #### 纯离散特征
@@ -21,6 +22,7 @@
 #### 图像数据&CNN
 1. [Digit_recognizer](https://github.com/lijingpeng/kaggle/tree/master/competitions/digit_recognizer)
 2. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
+3. [Facial_Keypoints_Detection](https://github.com/lijingpeng/kaggle/tree/master/competitions/Facial_Keypoints_Detection)
 
 #### 缺失值和归一化
 1. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
