@@ -54,7 +54,7 @@ def load(test=False, cols=None):
     X = X.astype(np.float32)
 
     # 针对训练集目标标签进行归一化
-    if not test: 
+    if not test:
         y = df[df.columns[:-1]].values
         y = (y - 48) / 48  
         X, y = shuffle(X, y, random_state=42)
@@ -357,9 +357,9 @@ if __name__ == '__main__':
 
 
     # Neural Network with 4779676 learnable parameters
-    
+
     ## Layer information
-    
+
       #  name      size
     ---  --------  ---------
       0  input     1x96x96
@@ -376,11 +376,11 @@ if __name__ == '__main__':
      11  dropout4  300
      12  hidden5   300
      13  output    4
-    
+
     # Neural Network with 4779676 learnable parameters
-    
+
     ## Layer information
-    
+
       #  name      size
     ---  --------  ---------
       0  input     1x96x96
@@ -397,7 +397,7 @@ if __name__ == '__main__':
      11  dropout4  300
      12  hidden5   300
      13  output    4
-    
+
       epoch    trn loss    val loss    trn/val  dur
     -------  ----------  ----------  ---------  -------
           1     [36m0.01113[0m     [32m0.00475[0m    2.34387  181.86s
