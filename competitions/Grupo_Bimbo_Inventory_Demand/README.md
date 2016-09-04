@@ -1,6 +1,8 @@
 
 ## Grupo Bimbo Inventory Demand
 
+[kaggle比赛解决方案集合](https://github.com/lijingpeng/kaggle) 
+
 [Grupo Bimbo Inventory Demand](https://www.kaggle.com/c/grupo-bimbo-inventory-demand) 在这个比赛中，我们需要预测某个产品在某个销售点每周的需求量。数据包含墨西哥9周的销售数据。每周，货运车辆把产品发往销售点，每笔交易包含销售量和退货量，其中退货量主要由未销售出的和过期的产品组成。每个产品的需求量是指该商品这周的销售量减去下周的退货量。
 
 几点注意：
@@ -62,11 +64,11 @@ def get_dataframe():
     这里有一个全局变量LAG_WEEK_VAL，表示week大于LAG_WEEK_VAL的数据作为训练集（训练集中只有第三周到第9周的数据，目标是预测第10和11周的数据）
     '''
     print('Loading training data')
-    train = pd.read_csv('train.csv', 
+    train = pd.read_csv('train.csv',
                         usecols=['Semana','Agencia_ID','Ruta_SAK','Cliente_ID','Producto_ID','Demanda_uni_equil'])
 
     print('Loading test data')
-    test = pd.read_csv('test.csv', 
+    test = pd.read_csv('test.csv',
                        usecols=['Semana','Agencia_ID','Ruta_SAK','Cliente_ID','Producto_ID','id'])
 
     print('Merging train & test data')
@@ -159,7 +161,7 @@ def build_model(df, features, model_params):
     preds = xlf.predict(data_test_11)
     data_test_11['Demanda_uni_equil'] = np.exp(preds) - 1
     data_test_11['id'] = test.loc[test['Semana'] == 11, 'id'].astype(int).tolist()
-    
+
     return pd.concat([data_test_10.loc[: , ['id', 'Demanda_uni_equil']],
                       data_test_11.loc[: , ['id', 'Demanda_uni_equil']]],
                       axis=0, copy=True)
