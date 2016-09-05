@@ -11,6 +11,7 @@
 5. [sequence](https://github.com/lijingpeng/kaggle/tree/master/competitions/Sequence)
 6. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
 7. [Facial_Keypoints_Detection](https://github.com/lijingpeng/kaggle/tree/master/competitions/Facial_Keypoints_Detection)
+8. [Grupo_Bimbo_Inventory_Demand](https://github.com/lijingpeng/kaggle/tree/master/competitions/Grupo_Bimbo_Inventory_Demand)
 
 ## 数据处理
 #### 纯离散特征
@@ -36,3 +37,6 @@
 3. [Bags_of_Words](https://github.com/lijingpeng/kaggle/tree/master/competitions/Bag_of_Words)
 4. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
 5. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
+
+## 回归问题
+1. [Grupo_Bimbo_Inventory_Demand](https://github.com/lijingpeng/kaggle/tree/master/competitions/Grupo_Bimbo_Inventory_Demand)
