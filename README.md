@@ -12,7 +12,7 @@
 6. [First Steps With Julia](https://github.com/lijingpeng/kaggle/tree/master/competitions/image_recognize)
 7. [Facial_Keypoints_Detection](https://github.com/lijingpeng/kaggle/tree/master/competitions/Facial_Keypoints_Detection)
 8. [Grupo_Bimbo_Inventory_Demand](https://github.com/lijingpeng/kaggle/tree/master/competitions/Grupo_Bimbo_Inventory_Demand)
-
+9. [Predicting_Red_Hat_Business_Value](https://github.com/lijingpeng/kaggle/tree/master/competitions/Predicting_Red_Hat_Business_Value)
 
 ## 分类问题
 1. [San_Francisco_Crime_Classification](https://github.com/lijingpeng/kaggle/tree/master/competitions/San_Francisco_Crime_Classification)
@@ -23,11 +23,12 @@
 
 ## 回归问题
 1. [Grupo_Bimbo_Inventory_Demand](https://github.com/lijingpeng/kaggle/tree/master/competitions/Grupo_Bimbo_Inventory_Demand)  
-
+2. [Predicting_Red_Hat_Business_Value](https://github.com/lijingpeng/kaggle/tree/master/competitions/Predicting_Red_Hat_Business_Value)
 
 ## 数据处理
 #### 纯离散特征
 1. [San_Francisco_Crime_Classification](https://github.com/lijingpeng/kaggle/tree/master/competitions/San_Francisco_Crime_Classification)  
+2. [Predicting_Red_Hat_Business_Value](https://github.com/lijingpeng/kaggle/tree/master/competitions/Predicting_Red_Hat_Business_Value)
 
 #### 连续特征
 1. [Titanic](https://github.com/lijingpeng/kaggle/tree/master/competitions/Titanic)
